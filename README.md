@@ -15,3 +15,8 @@ Semàntic
 --------
 
 Amb C, fent anar RPN (Reverse Polish notation)
+
+Main
+====
+
+Nececitarà comunicar-se amb python, llavors hem de dominar els *pipe*.
