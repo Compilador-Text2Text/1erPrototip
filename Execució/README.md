@@ -1,6 +1,5 @@
 Motiu del canvi del plantejament
 ================================
 
-Sembla ser que s'ha de programar a algún llenguatge de programació.
-Llavors millor primer començar a programar en aquest llenguatge de programació abanç
-de capficar-se a fer la presentació principal de l'usuari.
+Primer de tot, per a crear un llenguatge de programació necessito un codi assemblador.
+Així que primer farem el programa assemblador amb la lectura per a poder continuar.
