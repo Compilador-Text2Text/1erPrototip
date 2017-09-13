@@ -1,41 +1,44 @@
 #include <stdlib.h>
-#include <stdio.h>
-
-// Necessitem obrir el codi `assemblador'
-FILE *punter_fitxer_assemblador;
+#include "llegir-fitxer.h"
 
 /**
   * Funció per inicialitzar la lectura.
   */
-void inicialitzar_lectura_fitxer (char *nom)
+FILE *
+inicialitzar_lectura_fitxer (char *nom)
 {
-	punter_fitxer_assemblador = fopen (nom, "r");
+	FILE *punter_fitxer = fopen (nom, "r");
 
 	// Si hi ha algún problema.
-	if (!punter_fitxer_assemblador)
+	if (!punter_fitxer)
 	{
 		printf("El fitxer: %s\nNo existeix o no tenim permisos d'accés.\n", nom);
 		exit(EXIT_FAILURE);
 	}
+
+	return punter_fitxer;
 }
 
-void finalitzar_lectura_fitxer ()
+void
+finalitzar_lectura_fitxer (FILE *punter_fitxer)
 {
-	if (punter_fitxer_assemblador)
+	if (punter_fitxer)
 	{
-		fclose (punter_fitxer_assemblador);
-		punter_fitxer_assemblador = NULL;
+		fclose (punter_fitxer);
+		punter_fitxer = NULL;
 	}
 }
 
-char seguent_caracter ()
+char
+seguent_caracter (FILE *punter_fitxer)
 {
-	return fgetc (punter_fitxer_assemblador);
+	return fgetc (punter_fitxer);
 }
 
-int seguenta_linia (int llargada, char *linia)
+int
+seguenta_linia (FILE *punter_fitxer, int llargada, char *linia)
 {
-	if (fgets (linia, llargada, punter_fitxer_assemblador)
+	if (fgets (linia, llargada, punter_fitxer))
 		return 1;
 	return 0;
 }
