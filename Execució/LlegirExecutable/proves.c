@@ -1,6 +1,9 @@
 #include <stdlib.h>
 #include <string.h>
+
 #include "llegir-fitxer.h"
+#include "analitzador-sintactic.h"
+
 /**
   * Codi per a veure com és comporta el fgets i fgetc
   */
@@ -73,6 +76,12 @@ test_fgets300 (FILE *punter_fitxer)
 	}
 }
 
+void
+test_buscar_enter (FILE *punter_fitxer)
+{
+	printf ("Nombre llegit: %d\n", busca_enter (punter_fitxer));
+}
+
 int
 main (int argc, char *argv[])
 {
@@ -90,15 +99,21 @@ main (int argc, char *argv[])
 	punter_fitxer_assemblador = inicialitzar_lectura_fitxer (argv[1]);
 	switch (*argv[2])
 	{
+	// llegir-fitxer
 	case 'a': test_fgetc (punter_fitxer_assemblador); break;
 	case 'b': test_fgets5(punter_fitxer_assemblador); break;
 	case 'c': test_fgets5Error(punter_fitxer_assemblador); break;
 	case 'd': test_fgets300(punter_fitxer_assemblador); break;
+
+	// analitzador-sintactic
+	case 'A': test_buscar_enter (punter_fitxer_assemblador); break;
 	default:
 		printf ("Agafi un valor vàlid pel segon paràmetre:\na\tfgetc\n");
 		printf ("b\tfgets de 5\n");
 		printf ("c\tfgets de 5 amb error\n");
 		printf ("d\tfgets de 300\n");
+		printf ("\n");
+		printf ("A\tbuscar enter\n");
 	}
 	finalitzar_lectura_fitxer (punter_fitxer_assemblador);
 // EOF vs feof

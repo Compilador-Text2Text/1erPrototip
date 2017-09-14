@@ -33,7 +33,15 @@ finalitzar_lectura_fitxer (FILE *punter_fitxer)
 char
 seguent_caracter (FILE *punter_fitxer)
 {
-	return fgetc (punter_fitxer);
+	char c = fgetc (punter_fitxer);
+
+	if ( c == EOF )
+	{
+		printf ("Error, s'ha cridat la funció següent caràcter quan aquest no té següent.\n");
+		exit(EXIT_FAILURE);
+	}
+
+	return c;
 }
 
 int
@@ -50,7 +58,7 @@ seguenta_linia (FILE *punter_fitxer, int llargada, char *linia)
 		printf ("Error en lectura.\n");
 		printf ("La llargada és insuficient, %d és insuficient.\n", llargada);
 		printf ("Necessitem més caracters per a poder treballar adequadament.\n");
-		return 0;
+		exit (EXIT_FAILURE);
 	}
 	return 0;
 }
