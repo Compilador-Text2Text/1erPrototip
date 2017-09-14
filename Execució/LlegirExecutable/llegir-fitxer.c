@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include "llegir-fitxer.h"
 
 /**
@@ -38,7 +39,18 @@ seguent_caracter (FILE *punter_fitxer)
 int
 seguenta_linia (FILE *punter_fitxer, int llargada, char *linia)
 {
+	char *e;
+
 	if (fgets (linia, llargada, punter_fitxer))
-		return 1;
+	{
+		e = memchr (linia, '\n', llargada);
+		if (e)
+			return 1;
+
+		printf ("Error en lectura.\n");
+		printf ("La llargada és insuficient, %d és insuficient.\n", llargada);
+		printf ("Necessitem més caracters per a poder treballar adequadament.\n");
+		return 0;
+	}
 	return 0;
 }
