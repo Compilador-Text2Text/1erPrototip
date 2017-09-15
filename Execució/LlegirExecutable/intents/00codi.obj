@@ -1,0 +1,74 @@
+# Codi:
+#  int a = 3;
+#  char l= 24;
+#  int b;
+#  void *p;
+#  b = a ^ a;
+#  a = (int) l;
+#  p = & a;
+
+# On:
+# enum type { void=0, char=1, int=2 }
+# enum systemFuntions { ==0, ^=1, (int)=2, &=3 }, no serà un enum, sino un vector de funcions...
+# enum situat { codi=0, local=1, funció=2, exterior=3 }
+
+# Objecte
+#  a	3	=
+#  l	24	=
+#  b	a	a	^	=
+#  a	l	(int)	=
+#  p	a	&	=
+
+
+# el maxim que llegirà
+300
+
+# No en fem anar
+-variables
+ nombre:-0-
+
+# Només treballem amb una funció
+-funcions
+ nombre:-1-
+ -funció
+  -arguments
+   nombre:-0-
+  -memoria auxiliar:
+   nombre:-3-
+  -variables
+   nombre:-4-
+   variable:tipus:-2-,vegades punter:-0- # a=0
+   variable:tipus:-1-,vegades punter:-0- # l=1
+   variable:tipus:-2-,vegades punter:-0- # b=2
+   variable:tipus:-0-,vegades punter:-1- # p=3
+  -codi
+   nombre frases:-5-
+   -frase
+    nombre paraules:-3-		# a 3 =
+    paraula:tipus:-2-,vegades punter:-0-,situat:-1-,relatiu:-0-	# magradaria indicar que poses el punter...
+    paraula:tipus:-2-,vegades punter:-0-,situat:-0-,auxiliar:-3-
+    paraula:tipus:-2-,vegades punter:-0-,situat:-3-,relatiu:-0-,auxiliar:-2- # tot i no estar del tot d'acord
+   -frase
+    nombre paraules:-3- l 24 =
+    paraula:tipus:-1-,vegades punter:-0-,situat:-1-,relatiu:-1-
+    paraula:tipus:-1-,vegades punter:-0-,situat:-0-,auxiliar:-24- # no veig com pots saber si és un int o char...
+    paraula:tipus:-1-,vegades punter:-0-,situat:-3-,relatiu:-0-,auxiliar:-2- # tot i no estar del tot d'acord amb auxiliar
+   -frase
+    nombre paraules:-5- b a a ^ =
+    paraula:tipus:-2-,vegades punter:-0-,situat:-1-,relatiu:-2-
+    paraula:tipus:-2-,vegades punter:-0-,situat:-1-,relatiu:-0-
+    paraula:tipus:-2-,vegades punter:-0-,situat:-1-,relatiu:-0-
+    paraula:tipus:-2-,vegades punter:-0-,situat:-3-,relatiu:-1-,auxiliar:-2-
+    paraula:tipus:-2-,vegades punter:-0-,situat:-3-,relatiu:-0-,auxiliar:-2-
+   -frase
+    nombre paraules:-4- a l (int) =
+    paraula:tipus:-2-,vegades punter:-0-,situat:-1-,relatiu:-0-
+    paraula:tipus:-1-,vegades punter:-0-,situat:-1-,relatiu:-1-
+    paraula:tipus:-2-,vegades punter:-0-,situat:-3-,relatiu:-2-,auxliliar:-1-
+    paraula:tipus:-2-,vegades punter:-0-,situat:-3-,relatiu:-0-,auxliliar:-2-
+   -frase
+    nombre paraules:-4- p a & =
+    paraula:tipus:-0-,vegades punter:-1-,situat:-1-,relatiu:-3-
+    paraula:tipus:-2-,vegades punter:-0-,situat:-1-,relatiu:-0-
+    paraula:tipus:-0-,vegades punter:-1-,situat:-3-,relatiu:-3-,auxiliar:-1-
+    paraula:tipus:-0-,vegades punter:-1-,situat:-3-,relatiu:-0-,auxiliar:-2-
