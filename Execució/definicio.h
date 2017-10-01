@@ -20,6 +20,11 @@
  *	1.7 i 1.8 són només conceptuals?
  *
  * 2	Definir la funció
+ * 2.1		variables		Informació d'una variable
+ * 2.2		Descriptor		Informació d'una funció
+ * 2.3		Memòria d'execució	On guardem que passa
+ * 2.4		Funció Dinàmica		Múltiples crides a funcions
+ *
  **/
 
 	/*1*	Poder generar codi	**/
@@ -163,6 +168,9 @@ variable
 };
 
 
+/*2.2*		Descriptor		Informació d'una funció		**/
+/* Dades per a definir correctament una funció */
+// 4 elements importants: arguments, variables, semàntica i execució
 // Dependència: 1.2 1.8 2.1
 struct
 descriptor_funcio
@@ -185,8 +193,42 @@ descriptor_funcio
 	struct codi* codi;
 };
 
-// Pendent !!! i també definir correctament l'anterior.
+/*2.3*		Memòria d'execució	On guardem que passa		**/
+/* Per a poder enviar arguments i recuperar el que retorna la funció */
+// Guardar les sortides de les funcions.
+// També per enviar els arguments a les funcions.
+// Dependències: 1.1 1.3
+struct
+memoria_dExecucio
+{
+	// Anàlisi semàntica.
+	struct descriptor_valor descriptor;
+
+	// La informació.
+	union valor valor;
+
+	// Per saber el valor de la variable.
+	void* punter;
+};
+
+/*2.4*		Funció Dinàmica		Múltiples crides a funcions	**/
+/* Per a generar múltiples crides a les funcions */
+// Guarda les variables de cada crida.
+// També sap en tot moment per on va de la funció.
+// Dependències: 2.2 2.3
 struct
 funcio_dinamica
 {
+	// Arguments.
+	size_t nombre_dArguments;
+	struct memoria_dExecucio *memoria_dExecucio_dArguments;
+	struct variable* arguments;	// Anàlisis semàntica.
+
+	// Variables locals.
+	struct variable* locals;
+
+	// Execució.
+	struct memoria_dExecucio* memoria_dExecucio;
+	size_t fila, columna;
+	struct descriptor_funcio descriptor;
 };
