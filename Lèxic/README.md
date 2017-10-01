@@ -2,41 +2,41 @@ Funcionament
 ============
 
 python3 explorer.py *nomFitxerDefinidor* *nomFitxerCodiFont*
-- *nomFitxerDefinidor* Ès el descriptor de com voldr‡ compilar.
-- *nomFitxerCodiFont* Ès el codi font.
+- *nomFitxerDefinidor* √©s el descriptor de com voldr√† compilar.
+- *nomFitxerCodiFont* √©s el codi font.
 
 Si retorna:
 -----------
 
-- 0, tot va bÈ.
+- 0, tot va b√©.
 - 1, el nom del fitxer no existeix.
-- 2, no s'ha intruduÔt cap par‡metre.
-- 3, diem que entrem en mode Error LËxic.
+- 2, no s'ha intrudu√Øt cap par√†metre.
+- 3, diem que entrem en mode Error L√®xic.
 
-ExplicaciÛ
+Explicaci√≥
 ==========
 
-Aquest document est‡ fet amb *python3* per la simplificaciÛ que dona al programar **REGEX** en relaciÛ *C*.
-TambÈ permet treballar amb el sistema operatiu, ja que ens permet comunicar entre diferents llenguatges de programaciÛ.
+Aquest document est√† fet amb *python3* per la simplificaci√≥ que dona al programar **REGEX** en relaci√≥ *C*.
+Tamb√© permet treballar amb el sistema operatiu, ja que ens permet comunicar entre diferents llenguatges de programaci√≥.
 
 Fins a on ens limitem
 =====================
 
-Suposem que el fitxer Ès petit.
-Llavors ens podem permetre el luxe de cargar tot el document a memÚria.
+Suposem que el fitxer √©s petit.
+Llavors ens podem permetre el luxe de cargar tot el document a mem√≤ria.
 
 Millores possibles
 ------------------
-- Podria anar llegint el fitxer car‡cter per car‡cter.
-- Compilar amb diferents ordinadors. Ja que ens comuniquem a *pipes* i la diferËncia llavors Ès mÌnima.
+- Podria anar llegint el fitxer car√†cter per car√†cter.
+- Compilar amb diferents ordinadors. Ja que ens comuniquem a *pipes* i la difer√®ncia llavors √©s m√≠nima.
 - Hulman ???!!!
-- Podria tenir par‡metres, per tal de canviar les prestacions d'aquest programa.
+- Podria tenir par√†metres, per tal de canviar les prestacions d'aquest programa.
 
 Micelanius
 ==========
 
-vars() de python3 Ès on hi ha totes les variables.
-En funcions tindr‡................................
+vars() de python3 √©s on hi ha totes les variables.
+En funcions tindr√†................................
 
 debug
 -----
