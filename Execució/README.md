@@ -16,3 +16,9 @@ Nom
 
 Executor és aquell que executa.
 I executar és donar efecte en aquest cas, donar efecte a les ordres rebudes.
+
+Idea del codi
+=============
+
+Podria ser tot un sol vector.
+Però per a fer-ho el més similar al codi C, farem com si tractes d'una matriu.
