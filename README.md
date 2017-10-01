@@ -1,17 +1,17 @@
 1er prototip
 ============
 
-Explorador (lËxic)
+Explorador (l√®xic)
 ----------
 
-Amb python, ja que tenim mÈs facilitats.
+Amb python, ja que tenim m√©s facilitats.
 
 Sintaxis
 --------
 
 Amb C, fent anar el SYA (Shunting-yard algorithm)
 
-Sem‡ntic
+Sem√†ntic
 --------
 
 Amb C, fent anar RPN (Reverse Polish notation)
@@ -19,4 +19,4 @@ Amb C, fent anar RPN (Reverse Polish notation)
 Main
 ====
 
-Necessitar‡ comunicar-se amb python, llavors hem de dominar els *pipe*.
+Necessitar√† comunicar-se amb python, llavors hem de dominar els *pipe*.
