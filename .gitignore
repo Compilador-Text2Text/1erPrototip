@@ -4,3 +4,4 @@
 # sortida estandard
 a.out
 *.gch
+*.o

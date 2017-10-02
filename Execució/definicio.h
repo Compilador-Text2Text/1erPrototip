@@ -1,3 +1,6 @@
+#ifndef DEFINICIO_PER_EXECUCIO_H_
+#define DEFINICIO_PER_EXECUCIO_H_
+
 #include <stdlib.h>
 
 /**
@@ -234,3 +237,5 @@ funcio_dinamica
 	size_t fila, columna;
 	struct descriptor_funcio descriptor;
 };
+
+#endif // DEFINICIO_PER_EXECUCIO_H_
