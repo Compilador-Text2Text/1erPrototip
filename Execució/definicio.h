@@ -112,7 +112,7 @@ paraula_codi
 {
 	struct descriptor_valor	descriptor;
 	struct localitzacio	localitzacio_completa;
-	union valor		auxiliar;
+	union  valor		auxiliar;
 };
 
 /*1.7*		frase			Vector de paraules		**/
@@ -186,7 +186,9 @@ descriptor_funcio
 
 	// Anàlisi Semàntica.
 	size_t longitud_maxima_frases;
-	enum {esInjectiva, no_esInjectiva} funcio_injectiva;
+	// Definit uns arguments, el retorn sempre serà el mateix.
+	// !!!
+	enum {esEstable, no_esEstable} funcio_estable;
 
 	// Execució.
 	size_t dimencio_memoria_auxiliar;
