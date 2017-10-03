@@ -1,5 +1,6 @@
 # vim
 *.swp
+.*
 
 # sortida estandard
 a.out
