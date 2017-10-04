@@ -73,9 +73,8 @@ void* vector_treure (struct vector *v)
 	return v->dada + (--v->us)*(v->byts);
 }
 
-void* vector_retorn_element (struct vector *v, size_t i)
+void error_cercar_un_element (struct vector *v, size_t i)
 {
-	// Errors
 	if ( i >= v->us )
 	{
 		printf ("%s\n%s%zu, %s%zu\n%s\n",
@@ -87,9 +86,24 @@ void* vector_retorn_element (struct vector *v, size_t i)
 
 		exit (EXIT_FAILURE);
 	}
+}
+
+void* vector_retorn_element (struct vector *v, size_t i)
+{
+	// Errors
+	error_cercar_un_element (v, i);
 
 	// On està emmagatzemat.
 	return v->dada + i*v->byts;
+}
+
+void* vector_retorn_element_reves (struct vector *v, size_t i)
+{
+	// Errors
+	error_cercar_un_element (v, i);
+
+	// On està emmagatzemat.
+	return v->dada + (v->us - i -1)*v->byts;
 }
 
 void vector_modifica_element (struct vector *v, size_t i, void *dada)
