@@ -14,8 +14,8 @@ vector
 };
 
 /* Inicialitzar i finalitzar la llista */
-struct
-vector vector_inicialitzar (size_t capacitat_inicial, size_t byts_per_element);
+struct vector vector_inicialitzar (size_t capacitat_inicial,
+					size_t byts_per_element);
 void vector_alliberar (struct vector *v);
 
 /* Instruccions de pila */
