@@ -1,5 +1,5 @@
-#ifndef DEFINICIO_PER_EXECUCIO_H_
-#define DEFINICIO_PER_EXECUCIO_H_
+#ifndef VECTOR_H_
+#define VECTOR_H_
 
 #include <stdlib.h>
 
@@ -31,4 +31,4 @@ void vector_modifica_element (struct vector *v, size_t i, void *dada);
 /* Instrucció per modificar elements usats */
 void vector_modifica_us (struct vector *v, size_t nou_us);
 
-#endif // DEFINICIO_PER_EXECUCIO_H_
+#endif // VECTOR_H_

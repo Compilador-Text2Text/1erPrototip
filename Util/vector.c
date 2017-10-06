@@ -33,9 +33,9 @@
 // Tot i que sempre guardarà el mateix nombre de byts.
 
 /*1.1*		-inicialitzar 		Genera i crea l'estructura	**/
-/* Crear l'inici de la instància, ja que traballa amb malloc */
+/* Crear l'inici de la instància, ja que treballa amb malloc */
 // Un cop inicialitzat pots fer anar les altre operacions amb coherència.
-// En cas de no poder-ho fer, destrozarà directament el programa "exit".
+// En cas de no poder-ho fer, destrossarà directament el programa "exit".
 struct vector vector_inicialitzar (size_t capacitat, size_t byts)
 {
 	// Inicialitza l'estructura amb els valors corresponents.
@@ -46,7 +46,7 @@ struct vector vector_inicialitzar (size_t capacitat, size_t byts)
 			.dada		= malloc (capacitat*byts)
 			};
 
-	// Evita que el programa continui en cas d'error.
+	// Evita que el programa continuï en cas d'error.
 	if (!v.dada && (v.capacitat != 0))
 	{
 		printf ("%s\nCapacitat: %zu, Nombre de byts: %zu\n%s\n",
@@ -58,7 +58,7 @@ struct vector vector_inicialitzar (size_t capacitat, size_t byts)
 }
 
 /*1.2*		alliberar		Allibera l'estructura		**/
-/* Allibera la memoria i actualitza els valors */
+/* Allibera la memòria i actualitza els valors */
 // Permet continuar usant les funcions tenint en compte que ara
 // la llista està completament buida.
 void vector_alliberar (struct vector *v)
@@ -74,13 +74,13 @@ void vector_alliberar (struct vector *v)
 }
 
 	/*2*	Treballar com si fos una pila				**/
-/* Totes les operacions que podriem demanar a una pila */
+/* Totes les operacions que podríem demanar a una pila */
 // Afegir element, mirar o treure un element.
 
 /*2.1*		>incrementar		Afegeix capacitat a la llista	**/
 /* Incrementa la capacitat total, perquè l'ús pugui incrementar */
-// En cas de no poder-ho fer, destrozarà directament el programa "exit".
-// Testeixat, 0→1, 1→2 i sempre incrementa o iguala la diferència amb
+// En cas de no poder-ho fer, destrossarà directament el programa "exit".
+// Provat, 0→1, 1→2 i sempre incrementa o iguala la diferència amb
 // l'anterior, cosa que permet assegurar que realment incrementa.
 void incrementar_capacitat_del_vector_en_necessitat (struct vector *v)
 {
@@ -90,7 +90,7 @@ void incrementar_capacitat_del_vector_en_necessitat (struct vector *v)
 	// Valor extret de open source de ArrayList de Java.
 	v->capacitat = (v->capacitat * 3)/2 +1;
 
-	// Assegura tamany mínim.
+	// Assegura capacitat mínima.
 	if (v->capacitat <= v->us)
 		v->capacitat = v->us +1;
 
@@ -161,7 +161,7 @@ void* vector_mostra (struct vector *v)
 }
 
 	/*3*	Treballar com si fos una llista				**/
-/* Totes les operacions que podriem demanar a una pila */
+/* Totes les operacions que podríem demanar a una pila */
 // Afegir element, mirar o treure un element.
 
 /*3.0*		>cercar			Assegura que sigui vàlid	**/
@@ -213,7 +213,7 @@ void vector_modifica_element (struct vector *v, size_t i, void *dada)
 { memcpy (vector_retorn_element(v,i), dada, v->byts); }
 
 /*3.4*		-modifica dimensió	Canvia el us sense afegir dades	**/
-/* Permet modificar rapidament el tamany de la llista */
+/* Permet modificar ràpidament l'ús de la llista */
 // Capacitat d'aturar el programa.
 void vector_modifica_us (struct vector *v, size_t us)
 {
