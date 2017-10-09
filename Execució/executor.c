@@ -1,18 +1,21 @@
 #include "executor.h"
 int estat;
+struct llista_variables_globals variables_globals;
+struct llista_descriptors_funcio descriptors_funcio;
+
 
 int
 funcio_executa_codi
 	(
-		struct funcio_estat punter_funcio_estat,
-		struct pila_funcio_dinamica localitzacio_funcio_dinamica
+		struct punter_funcio_estat *pfe,
+		struct vector *pila_funcio_dinamica
 	)
 {
 	while	(
-			punter_funcio_estat
+			pfe->func
 				(
-					punter_funcio_estat,
-					localitzacio_funcio_dinamica
+					pfe,
+					pila_funcio_dinamica
 				)
 		);
 
