@@ -220,6 +220,7 @@ element_dExecucio
 
 	// Per saber el valor de la variable.
 	void* punter;
+	struct localitzacio localitzat;
 };
 
 struct memoria_dExecucio
