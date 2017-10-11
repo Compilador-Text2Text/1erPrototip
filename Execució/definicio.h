@@ -12,7 +12,7 @@
  * 1.1		valor			{ void*, char, int }
  *
  * 1.2		enum tipus		{ void,  char, int }
- * 1.3		descriptor valor	Anàlisi semàntica, tipus: ex (int **)
+ * 1.3		descriptor valor	Anàlisi semàntica, ex: (int **)
  *
  * 1.4		enum localització	{ codi, variable, funció }
  * 1.5		localització		Saber on està la informació
@@ -171,6 +171,14 @@ variable
 };
 
 
+struct
+variables
+{
+	size_t mida;
+	struct variable* variables;
+};
+
+
 /*2.2*		Descriptor		Informació d'una funció		**/
 /* Dades per a definir correctament una funció */
 // 4 elements importants: arguments, variables, semàntica i execució
@@ -179,13 +187,11 @@ struct
 descriptor_funcio
 {
 	// Arguments.
-	size_t nombre_dArguments;
-	struct variable* arguments;
+	struct variables arguments;	// Útil per la semàntica.
 	enum tipus_valor adicionals;	// Nombre arbitrari d'arguments.
 
 	// Variables locals.
-	size_t nombre_de_Locals;
-	struct variable* locals;
+	struct variables locals;
 
 	// Anàlisi Semàntica.
 	size_t longitud_maxima_frases;
@@ -194,8 +200,8 @@ descriptor_funcio
 	enum {esEstable, no_esEstable} funcio_estable;
 
 	// Execució.
-	size_t dimencio_memoria_auxiliar;
-	struct codi* codi;
+	size_t dimencio_memoria_dExecucio;
+	struct codi codi;
 };
 
 /*2.3*		Memòria d'execució	On guardem que passa		**/
@@ -204,7 +210,7 @@ descriptor_funcio
 // També per enviar els arguments a les funcions.
 // Dependències: 1.1 1.3
 struct
-memoria_dExecucio
+element_dExecucio
 {
 	// Anàlisi semàntica.
 	struct descriptor_valor descriptor;
@@ -214,6 +220,13 @@ memoria_dExecucio
 
 	// Per saber el valor de la variable.
 	void* punter;
+};
+
+struct memoria_dExecucio
+{
+	size_t capacitat;
+	size_t us;
+	struct element_dExecucio *memoria;
 };
 
 /*2.4*		Funció Dinàmica		Múltiples crides a funcions	**/
@@ -226,14 +239,14 @@ funcio_dinamica
 {
 	// Arguments.
 	size_t nombre_dArguments;
-	struct memoria_dExecucio *memoria_dExecucio_dArguments;
-	struct variable* arguments;	// Anàlisis semàntica.
+	struct element_dExecucio *memoria_dExecucio_dArguments;
+	struct variables arguments;	// Anàlisis semàntica.
 
 	// Variables locals.
-	struct variable* locals;
+	struct variables locals;
 
 	// Execució.
-	struct memoria_dExecucio* memoria_dExecucio;
+	struct memoria_dExecucio memoria_dExecucio;
 	size_t fila, columna;
 	struct descriptor_funcio descriptor;
 };
