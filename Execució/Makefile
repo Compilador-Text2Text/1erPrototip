@@ -5,4 +5,4 @@ h: definicio.h.gch
 definicio.h.gch: definicio.h
 	gcc definicio.h -Wall
 clean:
-	rm executor.o
+	rm executor.o definicio.h.gch

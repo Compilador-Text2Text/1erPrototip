@@ -22,4 +22,7 @@ struct punter_funcio_estat
 		struct vector *pila_funcio_dinamica);
 };
 
+// Crida a aquesta funció
+int funcio_executa_codi ( struct punter_funcio_estat *, struct vector *);
+
 #endif // EXECUTOR_H_
