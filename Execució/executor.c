@@ -39,22 +39,26 @@ funcio_executa_codi
 }
 
 struct paraula_codi toquen_i_increment ( struct funcio_dinamica *fc )
-;
+{
+	struct paraula_codi paraula =
+		fc->descriptor.codi.frase[fc->fila].paraula[fc->columna];
+
+	if ( fc->columna == fc->descriptor.codi.frase[fc->fila].mida )
+	{
+		// !!!
+		// Tocaria alliberar la memoria d'execució
+		fc->columna = 0;
+		fc->fila++;
+	} else
+		fc->columna++;
+
+	return paraula;
+}
 
 struct element_dExecucio *
 obtencio_lElement_dExecucio ( struct funcio_dinamica* fc)
 { return fc->memoria_dExecucio.memoria + fc->memoria_dExecucio.us++; }
 
-
-/*/ estructura per tenir la llista.
-struct
-vector
-{
-	size_t us;
-	size_t capacitat;
-	size_t byts;
-	void * dada;
-};*/
 int
 execucio_paraula ( struct vector *pila_funcio_dinamica )
 {
