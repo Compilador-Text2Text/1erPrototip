@@ -1,6 +1,7 @@
 #ifndef INICIALITZADOR_C_H_
 #define INICIALITZADOR_C_H_
 
+#include <stdlib.h>
 #include "../definicio.h"
 
 int inicialitzador_C

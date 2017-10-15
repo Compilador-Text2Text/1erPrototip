@@ -12,7 +12,7 @@ extern struct variables variables_globals;
 extern struct llista_descriptors_funcio
 {
 	size_t capacitat;
-	struct descriptor_funcio descriptor;
+	struct descriptor_funcio *descriptor;
 } descriptors_funcio;
 
 // Funcio estat

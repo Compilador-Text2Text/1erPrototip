@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #include "definicio.h"
-#include "Execució/inicialitzador_C.h"
+#include "Inicialitzadors/inicialitzador_C.h"
 
 #define Mostra_ajuda_error_tipus_dExecucio 1
 
