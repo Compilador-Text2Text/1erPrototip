@@ -19,6 +19,30 @@ void dades_variables (struct element_dExecucio *edE, struct variable *var)
 	edE->punter	= &var->valor;
 }
 
+// !!! Aquest aquí no m'agrada.
+// El voldria més aviat a la carpeta inicialitzar...
+int
+inicialitzador_i_execucio_C
+	(
+		enum pilar_dExecucio	execucio, // Saber com executar.
+		int			nombre_arguments,
+		char **			vector_arguments
+	)
+{
+	struct punter_funcio_estat pfe;
+	struct vector pila_funcio_dinamica;
+
+	// Definint la funció d'execució.
+	switch ( execucio )
+	{
+	case Defecte: pfe.func = funcio_executa_codi; break;
+	default: exit (3);
+	}
+
+	// Definint la pila de funció dinàmica.
+
+	return 0;
+}
 
 int
 funcio_executa_codi

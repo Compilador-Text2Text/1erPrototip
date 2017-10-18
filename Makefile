@@ -1,27 +1,32 @@
-ALL_OBJ=main.o					\
-	Inicialitzadors/inicialitzador_C.o	\
-	Execució/executor.o			\
-	Util/vector.o				\
-	Descriu/descriu_C_0.o
+ALL_OBJ=Bin/main.o				\
+	Bin/inicialitzador_C.o			\
+	Bin/executor.o				\
+	Bin/vector.o				\
+	Bin/descriu_C_0.o			\
+
 CFLAGS=-Wall -g
+NOM=main
 
-main: $(ALL_OBJ) Makefile
-	gcc $(ALL_OBJ) $(CFLAGS) -o main
+Bin/$(NOM): Bin $(ALL_OBJ) Makefile
+	gcc $(ALL_OBJ) $(CFLAGS) -o Bin/$(NOM)
 
-main.o: main.c Makefile
-	gcc main.c $(CFLAGS) -c
+Bin/$(NOM).o: $(NOM).c Makefile
+	gcc $(NOM).c $(CFLAGS) -c -o Bin/$(NOM).o
 
-Inicialitzadors/inicialitzador_C.o: Inicialitzadors/inicialitzador_C.c
-	cd Inicialitzadors; make inicialitzador_C.o
+Bin/inicialitzador_C.o: Inicialitzadors/inicialitzador_C.c
+	cd Inicialitzadors; make ../Bin/inicialitzador_C.o
 
-Execució/executor.o: Execució/executor.c
-	cd Execució; make executor.o
+Bin/executor.o: Execució/executor.c
+	cd Execució; make ../Bin/executor.o
 
-Util/vector.o: Util/vector.c
-	cd Util; make vector.o
+Bin/vector.o: Util/vector.c
+	cd Util; make ../Bin/vector.o
 
-Descriu/descriu_C_0.o: Descriu/descriu_C_0.c
-	cd Descriu; make descriu_C_0.o
+Bin/descriu_C_0.o: Descriu/descriu_C_0.c
+	cd Descriu; make ../Bin/descriu_C_0.o
+
+Bin:
+	mkdir Bin
 
 clean:
-	rm $(ALL_OBJ) main -f
+	rm Bin -rf

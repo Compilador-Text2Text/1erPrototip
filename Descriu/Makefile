@@ -1,4 +1,6 @@
 CFLAGS=-Wall -g
 
-descriu_C_0.o: descriu_C_0.c  descriu_C_0.h
-	gcc descriu_C_0.c $(CFLAGS) -c
+NOM=descriu_C_0
+
+../Bin/$(NOM).o: $(NOM).c $(NOM).h Makefile
+	gcc $(NOM).c $(CFLAGS) -c -o ../Bin/$(NOM).o

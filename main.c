@@ -3,6 +3,7 @@
 
 #include "definicio.h"
 #include "Inicialitzadors/inicialitzador_C.h"
+#include "Execució/executor.h"
 
 #define Mostra_ajuda_error_tipus_dExecucio 1
 
@@ -44,16 +45,20 @@ int main (int argc, char *argv[])
 	enum pilar_dExecucio execucio = Defecte;
 
 	// -i
-	enum tipus_dExecucio tipus = C;
+	enum tipus_dExecucio tipus_memoria_execucio = C;
 	size_t relatiu_dExecucio =0;
 
-	switch (tipus)
+	switch (tipus_memoria_execucio)
 	{
 	case C:
-		return inicialitzador_C (relatiu_dExecucio, execucio,
-				nombre_arguments, vector_arguments);
+		inicialitzador_C (relatiu_dExecucio);
+		inicialitzador_i_execucio_C (execucio, nombre_arguments,
+				vector_arguments);
+		break;
+
 	default:
 		mostra_ajuda (Mostra_ajuda_error_tipus_dExecucio);
+		return 1;
 	}
 	return 0;
 }

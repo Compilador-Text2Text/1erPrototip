@@ -1,10 +1,6 @@
 CFLAGS=-Wall -g
 
-executor.o: executor.c executor.h ../Util/vector.h Makefile
-	gcc executor.c $(CFLAGS) -c
+NOM=executor
 
-h: definicio.h.gch
-definicio.h.gch: definicio.h
-	gcc definicio.h -Wall
-clean:
-	rm executor.o definicio.h.gch
+../Bin/$(NOM).o: $(NOM).c $(NOM).h Makefile
+	gcc $(NOM).c $(CFLAGS) -c -o ../Bin/$(NOM).o

@@ -2,6 +2,7 @@
 #define EXECUTOR_H_
 
 #include "definicio.h"
+#include "../definicio.h"
 #include "../Util/vector.h"
 
 // !!! Definir: Llistes i pila. Pensa com fer-ho!!
@@ -24,5 +25,7 @@ struct punter_funcio_estat
 
 // Crida a aquesta funció
 int funcio_executa_codi ( struct punter_funcio_estat *, struct vector *);
+int inicialitzador_i_execucio_C (enum pilar_dExecucio execucio,
+		int nombre_arguments, char **vector_arguments);
 
 #endif // EXECUTOR_H_

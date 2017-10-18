@@ -4,12 +4,6 @@
 #include <stdlib.h>
 #include "../definicio.h"
 
-int inicialitzador_C
-(
-	size_t			relatiu_dExecucio,
-	enum pilar_dExecucio	execucio,
-	size_t			nombre_arguments,
-	char **			vector_arguments
-);
+int inicialitzador_C ( size_t relatiu_dExecucio);
 
 #endif // INICIALITZADOR_C_H_

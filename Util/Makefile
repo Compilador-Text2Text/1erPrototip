@@ -1,7 +1,9 @@
 CFLAGS=-Wall -g
 
-vector.o: vector.c  vector.h
-	gcc vector.c $(CFLAGS) -c
+NOM=vector
+
+../Bin/$(NOM).o: $(NOM).c $(NOM).h Makefile
+	gcc $(NOM).c $(CFLAGS) -c -o ../Bin/$(NOM).o
 
 test: test.exe
 
