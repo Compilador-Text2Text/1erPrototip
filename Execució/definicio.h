@@ -81,7 +81,9 @@ localitzacions
 	Local,		// Variables locals.
 	Global,		// Variables globals.
 
-	Funcio,		// Funcions pròpies.
+	Funcio,		// Creació d'una funció pròpia.
+	Retorn,		// Retorn d'una funció pròpia.
+
 	Sistema		// Funcions de sistema.
 };
 
@@ -239,7 +241,6 @@ struct
 funcio_dinamica
 {
 	// Arguments.
-	size_t nombre_dArguments;
 	struct element_dExecucio *memoria_dExecucio_dArguments;
 	struct variables arguments;	// Anàlisis semàntica.
 
@@ -249,7 +250,7 @@ funcio_dinamica
 	// Execució.
 	struct memoria_dExecucio memoria_dExecucio;
 	size_t fila, columna;
-	struct descriptor_funcio descriptor;
+	struct descriptor_funcio *descriptor;
 };
 
 #endif // DEFINICIO_PER_EXECUCIO_H_

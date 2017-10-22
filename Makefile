@@ -29,4 +29,4 @@ Bin:
 	mkdir Bin
 
 clean:
-	rm Bin -rf
+	-rm Bin/*

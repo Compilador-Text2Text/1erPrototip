@@ -16,6 +16,8 @@ extern struct llista_descriptors_funcio
 	struct descriptor_funcio *descriptor;
 } descriptors_funcio;
 
+extern int (**llista_funcions_sistema) (size_t , struct element_dExecucio *);
+
 // Funcio estat
 struct punter_funcio_estat
 {

@@ -2,12 +2,23 @@
 
 #include "../Execució/executor.h"
 
+int igual_enters (size_t nombre_arguments, struct element_dExecucio *eex)
+{
+	((union valor*)eex[0].punter)->enter = eex[1].valor.enter;
+	return 1;
+}
+
 void descriu_C_0 ()
 {
 	struct descriptor_funcio *dfm; // Descriptor de funció per modificar.
 	struct variable *v;
 	struct frase *f;
 	struct paraula_codi *p;
+
+	// Funcions de sistema
+	llista_funcions_sistema = malloc (10 *
+		sizeof (int (*)(size_t, struct element_dExecucio *)));
+	llista_funcions_sistema[0] = igual_enters;
 
 	// Variables globals
 	variables_globals.mida		= 0;
@@ -73,6 +84,7 @@ void descriu_C_0 ()
 	f->mida = 4;
 	f->paraula = malloc (4*sizeof(struct paraula_codi));
 	p = f->paraula; // p = &a;
+	p->descriptor.tipus = Int;
 	p = f->paraula +1;
 	p = f->paraula +2;
 	p = f->paraula +3;
