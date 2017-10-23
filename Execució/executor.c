@@ -137,11 +137,14 @@ struct paraula_codi toquen_i_increment ( struct funcio_dinamica *fc )
 	struct paraula_codi paraula =
 		fc->descriptor->codi.frase[fc->fila].paraula[fc->columna];
 
-	if ( fc->columna +1 == fc->descriptor->codi.frase[fc->fila].mida )
-	{
+	// Passar de línia
+	if ( !fc->columna )
 		// !!!
 		// Tocaria alliberar la memoria d'execució
 		fc->memoria_dExecucio.us = 0;
+
+	if ( fc->columna +1 == fc->descriptor->codi.frase[fc->fila].mida )
+	{
 		fc->columna = 0;
 		fc->fila++;
 	} else

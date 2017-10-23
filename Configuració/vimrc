@@ -16,3 +16,4 @@ set colorcolumn=75,80
 set mouse=
 set nocompatible
 set backspace=indent,eol,start  " more powerful backspacing
+set autoindent
