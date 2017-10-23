@@ -141,6 +141,7 @@ struct paraula_codi toquen_i_increment ( struct funcio_dinamica *fc )
 	{
 		// !!!
 		// Tocaria alliberar la memoria d'execució
+		fc->memoria_dExecucio.us = 0;
 		fc->columna = 0;
 		fc->fila++;
 	} else
