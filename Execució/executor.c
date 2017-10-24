@@ -102,8 +102,7 @@ inicialitzador_i_execucio_C
 
 	funcions_generacio (0, NULL, 0, &pila_funcio_dinamica);
 
-	funcio_executa_codi (&pfe, &pila_funcio_dinamica);
-	return 0;
+	return funcio_executa_codi (&pfe, &pila_funcio_dinamica);
 }
 
 int
@@ -134,7 +133,17 @@ int funcio_executa_paraula
 
 struct paraula_codi toquen_i_increment ( struct funcio_dinamica *fc )
 {
-	struct paraula_codi paraula =
+	struct paraula_codi paraula;
+
+	// Comprovació que tot funciona correctament.
+	if (fc->descriptor->codi.mida == fc->fila)
+	{
+		paraula.localitzacio_completa.quin_vector_es = NoRetorn;
+		return paraula;
+	}
+
+	// Inicialització normal.
+	paraula	=
 		fc->descriptor->codi.frase[fc->fila].paraula[fc->columna];
 
 	// Passar de línia
@@ -208,7 +217,18 @@ execucio_paraula ( struct vector *pila_funcio_dinamica )
 		return funcions_sistema (paraula.auxiliar.enter, edE,
 			paraula.localitzacio_completa.lloc_relatiu);
 	case Retorn:
+		if (pila_funcio_dinamica->us == 1)
+		{
+			if (paraula.localitzacio_completa.lloc_relatiu)
+				estat = edE[-1].valor.enter;
+			else
+				estat = 0;
+			return 0;
+		}
 	return 1;
+	case NoRetorn:
+		estat = 140;
+		return 0;
 	default:
 	return 0;
 	}

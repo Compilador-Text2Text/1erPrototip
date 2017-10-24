@@ -83,6 +83,7 @@ localitzacions
 
 	Funcio,		// Creació d'una funció pròpia.
 	Retorn,		// Retorn d'una funció pròpia.
+	NoRetorn,	// Quan no hi ha cap retorn.
 
 	Sistema		// Funcions de sistema.
 };

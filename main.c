@@ -52,9 +52,8 @@ int main (int argc, char *argv[])
 	{
 	case C:
 		inicialitzador_C (relatiu_dExecucio);
-		inicialitzador_i_execucio_C (execucio, nombre_arguments,
+		return inicialitzador_i_execucio_C (execucio, nombre_arguments,
 				vector_arguments);
-		break;
 
 	default:
 		mostra_ajuda (Mostra_ajuda_error_tipus_dExecucio);

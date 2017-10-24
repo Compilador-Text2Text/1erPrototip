@@ -4,7 +4,9 @@ ALL_OBJ=Bin/main.o				\
 	Bin/vector.o				\
 	Bin/descriu_C_0.o			\
 
-CFLAGS=-Wall -g
+CFLAGS=-Wall -g	\
+       -l m	\
+
 NOM=main
 
 Bin/$(NOM): Bin $(ALL_OBJ) Makefile

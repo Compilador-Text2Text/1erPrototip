@@ -1,4 +1,5 @@
 #include <string.h>
+#include <math.h>
 
 #include "../Execució/executor.h"
 
@@ -19,16 +20,21 @@ int extreu_punter (size_t na, struct element_dExecucio *e)
 // 2
 int producte_enter (size_t na, struct element_dExecucio *e)
 {
-	e[0].valor.enter *= e[1].valor.enter;
+	e->valor.enter *= e[1].valor.enter;
 	return 1;
 }
 // 3
 int resta_enter (size_t na, struct element_dExecucio *e)
 {
-	e[0].valor.enter -= e[1].valor.enter;
+	e->valor.enter -= e[1].valor.enter;
 	return 1;
 }
 // 4
+int potencia_enter (size_t na, struct element_dExecucio *e)
+{
+	e->valor.enter = pow (e->valor.enter, e[1].valor.enter);
+	return 1;
+}
 
 void descriu_C_0 ()
 {
@@ -44,6 +50,7 @@ void descriu_C_0 ()
 	llista_funcions_sistema[1] = extreu_punter;
 	llista_funcions_sistema[2] = producte_enter;
 	llista_funcions_sistema[3] = resta_enter;
+	llista_funcions_sistema[4] = potencia_enter;
 
 	// Variables globals
 	variables_globals.mida		= 0;
@@ -256,13 +263,22 @@ void descriu_C_0 ()
 	p->localitzacio_completa.lloc_relatiu = 0;
 	p->auxiliar.enter = 2;
 
-	// return a
+	// Retorn a
 	f = dfm->codi.frase +4;
 	f->mida = 2;
 	f->paraula = malloc (2*sizeof(struct paraula_codi));
-	p = f->paraula +0;
-	p = f->paraula +1;
 
+	// a
+	p = f->paraula +0;
+	p->descriptor.tipus = Int;
+	p->descriptor.vegades_punter = 0;
+	p->localitzacio_completa.quin_vector_es = Local;
+	p->localitzacio_completa.lloc_relatiu = 0;
+
+	// Retorn
+	p = f->paraula +1;
+	p->localitzacio_completa.quin_vector_es = Retorn;
+	p->localitzacio_completa.lloc_relatiu = 1;
 }
 	/*
 	struct descriptor_valor	descriptor;
