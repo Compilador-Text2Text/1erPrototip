@@ -31,4 +31,6 @@ Bin:
 	mkdir Bin
 
 clean:
-	-rm Bin/*
+	rm Bin/* -rf
+
+.PHONY: clean
